@@ -8,10 +8,9 @@ export class Grid extends React.Component {
   }
 
   renderSubgrids(height, width) {
-    const size = 15;
     const position = { x: [], y: [] };
-    for (let h = 0; h < height; h += size) {
-      for (let w = 0; w < width; w += size) {
+    for (let h = 0; h < height; h++) {
+      for (let w = 0; w < width; w++) {
         position.x.push(w);
         position.y.push(h);
       }
@@ -23,7 +22,6 @@ export class Grid extends React.Component {
       <Subgrid
         x={pos[0]}
         y={pos[1]}
-        size={size}
         currGrid={this.props.currGrid}
         direction={this.props.direction}
       />
@@ -36,7 +34,11 @@ export class Grid extends React.Component {
     const { height, width } = this.props;
     return (
       <div {...this.props}>
-        <svg height={height} width={width} xmlns="http://www.w3.org/2000/svg">
+        <svg
+          height={height * 15}
+          width={width * 15}
+          xmlns="http://www.w3.org/2000/svg"
+        >
           {this.renderSubgrids(height, width)}
         </svg>
       </div>

@@ -26,18 +26,18 @@ export class Subgrid extends React.Component {
   }
 
   render() {
-    const { x, y, size } = this.props;
+    const { x, y } = this.props;
 
     return (
       <rect
-        x={x}
-        y={y}
-        width={size}
-        height={size}
+        x={x * 15}
+        y={y * 15}
+        width={15}
+        height={15}
         fill={this.state.fill}
         stroke={"black"}
         strokeWidth={1}
-        strokeOpacity={.3}
+        strokeOpacity={0.3}
       ></rect>
     );
   }

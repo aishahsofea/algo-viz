@@ -5,8 +5,7 @@ export class LangstonsAnt extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      gridSize: [450, 450],
-      currGrid: [270, 240],
+      currGrid: [5, 5],
       direction: "north",
     };
     this.handleNextStep = this.handleNextStep.bind(this);
@@ -23,16 +22,16 @@ export class LangstonsAnt extends React.Component {
     let forward;
     switch (direction) {
       case "north":
-        forward = [x, y - 15];
+        forward = [x, y - 1];
         break;
       case "east":
-        forward = [x + 15, y];
+        forward = [x + 1, y];
         break;
       case "south":
-        forward = [x, y + 15];
+        forward = [x, y + 1];
         break;
       case "west":
-        forward = [x - 15, y];
+        forward = [x - 1, y];
         break;
       default:
     }
@@ -67,7 +66,7 @@ export class LangstonsAnt extends React.Component {
   };
 
   handleBoundaries = (currGrid) => {
-    const { gridSize } = this.state;
+    const { gridSize } = this.props;
     const x = currGrid[0];
     const y = currGrid[1];
 
@@ -83,9 +82,10 @@ export class LangstonsAnt extends React.Component {
   };
 
   handleMove = () => {
-    if (this.handleBoundaries(this.handleNextStep())) {
+    const nextStep = this.handleNextStep();
+    if (this.handleBoundaries(nextStep)) {
       this.setState({
-        currGrid: this.handleNextStep(),
+        currGrid: nextStep,
       });
     } else {
       this.props.handleViz();
@@ -103,8 +103,8 @@ export class LangstonsAnt extends React.Component {
   };
 
   render() {
-    const height = this.state.gridSize[0];
-    const width = this.state.gridSize[1];
+    const height = this.props.gridSize[0];
+    const width = this.props.gridSize[1];
     return (
       <div>
         <Grid
