@@ -103,13 +103,13 @@ export class LangstonsAnt extends React.Component {
   };
 
   render() {
-    const height = this.props.gridSize[0];
-    const width = this.props.gridSize[1];
+    const width = this.props.gridSize[0];
+    const height = this.props.gridSize[1];
     return (
       <div>
         <Grid
-          height={height}
           width={width}
+          height={height}
           currGrid={this.state.currGrid}
           direction={this.handleDirection}
         />
