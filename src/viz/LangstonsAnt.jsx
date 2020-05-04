@@ -5,13 +5,14 @@ export class LangstonsAnt extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currGrid: [5, 5],
+      currGrid: null,
       direction: "north",
     };
     this.handleNextStep = this.handleNextStep.bind(this);
     this.handleDirection = this.handleDirection.bind(this);
     this.handleBoundaries = this.handleBoundaries.bind(this);
     this.handleMove = this.handleMove.bind(this);
+    this.handleCurrGrid = this.handleCurrGrid.bind(this);
     this.timeOut = 0;
   }
 
@@ -92,10 +93,16 @@ export class LangstonsAnt extends React.Component {
     }
   };
 
+  handleCurrGrid = (location) => {
+    this.setState({
+      currGrid: location,
+    });
+  };
+
   componentDidUpdate = (prevProps) => {
     if (this.props.visualizing !== prevProps.visualizing) {
       if (this.props.visualizing) {
-        this.timeOut = setInterval(this.handleMove, 1);
+        this.timeOut = setInterval(this.handleMove, 10);
       } else {
         clearInterval(this.timeOut);
       }
@@ -103,17 +110,21 @@ export class LangstonsAnt extends React.Component {
   };
 
   render() {
-    const width = this.props.gridSize[0];
-    const height = this.props.gridSize[1];
+    const { visualizing, gridSize } = this.props;
+    const width = gridSize[0];
+    const height = gridSize[1];
     return (
-      <div>
+      <React.Fragment>
+        {"Click on the grid to place the ant"}
         <Grid
           width={width}
           height={height}
           currGrid={this.state.currGrid}
           direction={this.handleDirection}
+          handleCurrGrid={this.handleCurrGrid}
+          visualizing={visualizing}
         />
-      </div>
+      </React.Fragment>
     );
   }
 }

@@ -5,6 +5,7 @@ export class Grid extends React.Component {
   constructor(props) {
     super(props);
     this.renderSubgrids = this.renderSubgrids.bind(this);
+    this.handleAnt = this.handleAnt.bind(this);
   }
 
   renderSubgrids(height, width) {
@@ -24,11 +25,17 @@ export class Grid extends React.Component {
         y={pos[1]}
         currGrid={this.props.currGrid}
         direction={this.props.direction}
+        handleAnt={this.handleAnt}
+        visualizing={this.props.visualizing}
       />
     ));
 
     return subgrids;
   }
+
+  handleAnt = (location) => {
+    this.props.handleCurrGrid(location);
+  };
 
   render() {
     const { height, width } = this.props;

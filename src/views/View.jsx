@@ -33,7 +33,6 @@ export class View extends React.Component {
 
   render() {
     const { gridWidth, gridHeight } = this.state;
-    console.log(gridWidth, gridHeight)
     return (
       <div className="App">
         <VizAppBar
