@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/algo-viz/static/js/main.e19ff065.chunk.js",
+    "main.js.map": "/algo-viz/static/js/main.e19ff065.chunk.js.map",
+    "runtime-main.js": "/algo-viz/static/js/runtime-main.8d6939ea.js",
+    "runtime-main.js.map": "/algo-viz/static/js/runtime-main.8d6939ea.js.map",
+    "static/js/2.5b2a74d3.chunk.js": "/algo-viz/static/js/2.5b2a74d3.chunk.js",
+    "static/js/2.5b2a74d3.chunk.js.map": "/algo-viz/static/js/2.5b2a74d3.chunk.js.map",
+    "index.html": "/algo-viz/index.html",
+    "precache-manifest.5e4bb6b17f8c0f565589f7a8c0e2d7f8.js": "/algo-viz/precache-manifest.5e4bb6b17f8c0f565589f7a8c0e2d7f8.js",
+    "service-worker.js": "/algo-viz/service-worker.js",
+    "static/js/2.5b2a74d3.chunk.js.LICENSE.txt": "/algo-viz/static/js/2.5b2a74d3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8d6939ea.js",
+    "static/js/2.5b2a74d3.chunk.js",
+    "static/js/main.e19ff065.chunk.js"
+  ]
+}
