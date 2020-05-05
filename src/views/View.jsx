@@ -7,6 +7,7 @@ export class View extends React.Component {
     super(props);
     this.state = {
       isVisualizing: false,
+      clickCount: 0,
       gridWidth: 30,
       gridHeight: 30,
     };
@@ -16,6 +17,7 @@ export class View extends React.Component {
   handleVisualize = () => {
     this.setState({
       isVisualizing: !this.state.isVisualizing,
+      clickCount: this.state.clickCount + 1,
     });
   };
 
@@ -44,6 +46,7 @@ export class View extends React.Component {
         />
         <LangstonsAnt
           visualizing={this.state.isVisualizing}
+          clickCount={this.state.clickCount}
           handleViz={this.handleVisualize}
           gridSize={[gridWidth, gridHeight]}
         />

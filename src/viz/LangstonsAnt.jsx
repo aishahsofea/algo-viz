@@ -110,7 +110,7 @@ export class LangstonsAnt extends React.Component {
   };
 
   render() {
-    const { visualizing, gridSize } = this.props;
+    const { gridSize, visualizing, clickCount } = this.props;
     const width = gridSize[0];
     const height = gridSize[1];
     return (
@@ -123,6 +123,7 @@ export class LangstonsAnt extends React.Component {
           direction={this.handleDirection}
           handleCurrGrid={this.handleCurrGrid}
           visualizing={visualizing}
+          clickCount={clickCount}
         />
       </React.Fragment>
     );

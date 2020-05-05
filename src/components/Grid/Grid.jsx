@@ -21,12 +21,14 @@ export class Grid extends React.Component {
     const zippedPosition = zip(position.x, position.y);
     const subgrids = zippedPosition.map((pos, ind) => (
       <Subgrid
+        key={ind}
         x={pos[0]}
         y={pos[1]}
         currGrid={this.props.currGrid}
         direction={this.props.direction}
         handleAnt={this.handleAnt}
         visualizing={this.props.visualizing}
+        clickCount={this.props.clickCount}
       />
     ));
 
@@ -40,7 +42,7 @@ export class Grid extends React.Component {
   render() {
     const { height, width } = this.props;
     return (
-      <div {...this.props}>
+      <div>
         <svg
           height={height * 15}
           width={width * 15}

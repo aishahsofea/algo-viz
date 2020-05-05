@@ -26,7 +26,7 @@ export class Subgrid extends React.Component {
     this.props.handleAnt([x, y]);
   };
 
-  renderAnt() {
+  renderAnt = () => {
     const { x, y } = this.props;
     return (
       <image
@@ -38,12 +38,19 @@ export class Subgrid extends React.Component {
         preserveAspectRatio="xMidYMid meet"
       />
     );
-  }
+  };
 
   componentDidUpdate(prevProps) {
-    const { visualizing } = this.props;
-    if (visualizing && this.props.currGrid !== prevProps.currGrid) {
-      this.handleFlip();
+    const { visualizing, clickCount } = this.props;
+    if (this.props.currGrid !== prevProps.currGrid) {
+      if (visualizing) {
+        this.handleFlip();
+      }
+    } else if (this.props.visualizing !== prevProps.visualizing) {
+      if (visualizing && clickCount <= 1) {
+        console.log("visualizing changed");
+        this.handleFlip();
+      }
     }
   }
 
